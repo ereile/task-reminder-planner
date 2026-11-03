@@ -1,4 +1,5 @@
 """Тесты повторяющихся задач."""
+
 from src.services.recurrence import next_due_date
 
 

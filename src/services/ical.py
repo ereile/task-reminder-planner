@@ -1,4 +1,5 @@
 """Экспорт задач в формат iCalendar."""
+
 from datetime import datetime
 
 from icalendar import Calendar, Event

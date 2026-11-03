@@ -1,4 +1,5 @@
 """Точка входа FastAPI."""
+
 import json
 from pathlib import Path
 from uuid import uuid4
@@ -62,8 +63,12 @@ def mark_done(task_id: str) -> dict:
             nxt = next_due_date(task.due_date, task.recurrence)
             if nxt:
                 clone = Task(
-                    **{**task.to_dict(), "id": str(uuid4()),
-                       "due_date": nxt, "status": "active"}
+                    **{
+                        **task.to_dict(),
+                        "id": str(uuid4()),
+                        "due_date": nxt,
+                        "status": "active",
+                    }
                 )
                 tasks.append(clone)
             save_tasks(tasks)

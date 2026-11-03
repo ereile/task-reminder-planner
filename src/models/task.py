@@ -1,4 +1,5 @@
 """Модель задачи."""
+
 from dataclasses import asdict, dataclass, field
 from typing import Optional
 from uuid import uuid4

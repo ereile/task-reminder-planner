@@ -1,4 +1,5 @@
 """Тесты экспорта в iCal."""
+
 from src.models.task import Task
 from src.services.ical import export_ics
 
