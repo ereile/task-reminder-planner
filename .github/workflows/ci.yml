@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,11 +25,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-     # - name: Black (format check)
-     #   run: black --check src tests
+      - name: Auto-format with Black
+        run: black src tests
 
-     # - name: Pylint (lint)
-     #   run: pylint src --fail-under=6
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format code with Black"
 
-     # - name: Pytest with coverage
-     #   run: pytest --cov=src --cov-report=term-missing
+      - name: Pylint (lint)
+        run: pylint src --fail-under=6
+
+      - name: Pytest with coverage
+        run: pytest --cov=src --cov-report=term-missing
