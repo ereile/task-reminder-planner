@@ -11,3 +11,9 @@
 ## Стек
 FastAPI, python-dateutil, icalendar, pytest, Black, Pylint, GitHub Actions.
 
+## Как запустить локально
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/ваш_ник/task-reminder-planner.git
+   cd task-reminder-planner
